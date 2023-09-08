@@ -48,7 +48,7 @@ export const App = () => {
             return;
           }
 
-          setImages([...images, ...newImages]);
+          setImages(prevImages => [...prevImages, ...newImages]);
           setHasMoreImages(page * 12 < totalHits);
         }
       } catch (error) {
