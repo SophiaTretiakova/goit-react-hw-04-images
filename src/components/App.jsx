@@ -29,35 +29,6 @@ export const App = () => {
   };
 
   useEffect(() => {
-    //   async function processingUpdate() {
-    //     try {
-    //       setIsLoading(true);
-    //       setError(false);
-    //       setHasMoreImages(false);
-
-    //       if (query) {
-    //         const { newImages, totalHits } = await fetchImagesWithQuery(
-    //           query.split('/')[1],
-    //           page
-    //         );
-    //         setImages([...images, newImages]);
-    //         if (!images.length) {
-    //           setIsLoading(false);
-    //           setHasMoreImages(false);
-    //           toast('There are no images for this query.');
-    //           return;
-    //         }
-
-    //         setImages(prevImages => [...prevImages, ...newImages]);
-    //         setHasMoreImages(page * 12 < totalHits);
-    //       }
-    //     } catch (error) {
-    //       toast('Oops, an error occurred! Try to reload the page.');
-    //       setError(true);
-    //     } finally {
-    //       setIsLoading(false);
-    //     }
-    //   }
     async function processingUpdate() {
       try {
         setIsLoading(true);
@@ -77,7 +48,7 @@ export const App = () => {
             return;
           }
 
-          setImages([...images, newImages]);
+          setImages([...images, ...newImages]);
           setHasMoreImages(page * 12 < totalHits);
         }
       } catch (error) {
